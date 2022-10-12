@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- Mapperとxmlのマッピング -->
+<mapper namespace="com.example.demo.repository.UserMapper">
+
+    <!-- マッピング定義(ユーザー) -->
+    <resultMap type="com.example.demo.entity.MUser" id="user">
+        <id column="id" property="id"></id>
+        <result column="email" property="email"></result>
+        <result column="password" property="password"></result>
+        <result column="password_confirmation" property="passwordConfirmation"></result>
+        <result column="name" property="name"></result>
+        <result column="role" property="role"></result>
+        <result column="created_at" property="createdAt"></result>
+        <result column="updated_at" property="updatedAt"></result>
+    </resultMap>
+
+    <!-- ログインユーザー以外のユーザー取得(複数件) -->
+    <select id="findMany" resultType="MUser">
+        select
+            *
+        from users
+        where not
+            id = #{id}
+    </select>
+</mapper>
