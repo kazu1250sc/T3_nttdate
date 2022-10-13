@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/NTTDate_CSS.css}" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<!-- ヘッダー開始（アカウントのトップページ） -->
+<header>
+    <div class="top left">
+        Tinker
+    </div>
+    <div class="top right">
+        Create Account
+    </div>
+</header>
+<!-- ヘッダー終了（アカウントのトップページ） -->
+
+
+<!-- メインページ開始（名前～パスワードまで） -->
+<body>
+    <div class="register">
+      <div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
+    </div>
+        <form th:action="@{/create}" th:object="${userRequest}" th:method="post">
+            <p>姓<br>
+                <input type="text" th:field="*{last_name}" name="姓"></p>
+            <p>名<br>
+                <input type="text" th:field="*{first_name}" name="名"></p>
+            <p>性別<br>
+                <input type="text" th:field="*{sex}" name="性別"></p>
+            <p>社員コード(ID)<br>
+                <input type="text" name="ID"></p>
+            <p>メールアドレス<br>
+                <input type="text" th:field="*{email}" name="email"></p>
+            <p>パスワード<br>
+                <input type="text" th:field="*{password}" name="Password"></p>
+            <p>パスワードの確認<br>
+                <input type="text" th:field="*{confirmPassword}" name="ConfirmPassword"></p>
+            <div class="button">
+                <input type="submit" value="登録する">
+            </div>
+            <input type="reset" value="取消する">
+        </form>
+    </div>
+</body>
+<!-- メインページ終了（名前～パスワードまで） -->
+
+
+<!--フッター　＋　フッターロゴ  開始-->
+<footer>
+    <div class="page">
+        Tinker 2022
+    </div>
+</footer>
+<!--フッター　＋　フッターロゴ  終了-->
+
+
+</html>
