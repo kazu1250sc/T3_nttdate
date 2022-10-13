@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'マッチ候補一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>マッチ候補一覧</h1>
+    <div class="float-end">
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>名前</th>
+          <th>部署</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+          <td th:text="*{name}"></td>
+          <td th:text="*{department}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
