@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <body>
+  	<form >
+  		<h3>Session Id</h3>
+ 		<p th:text="${user.getUserID}"/>
+ 		<h3>ユーザー名</h3>
+ 		<p th:text="${user.getUserName}"/>
+ 		<h3>ログイン回数</h3>
+ 		<p th:text="${user.getLoginCount}" />
+	   	<p>
+	    	<input type="submit" name="login" formaction="/login" value="ログイン" /> 
+	    </p>
+  	</form>
+  </body>
+</html>
