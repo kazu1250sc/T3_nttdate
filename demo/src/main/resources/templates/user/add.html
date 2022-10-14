@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'ユーザー新規登録', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+<!-- ヘッダー開始（アカウントトップページ） -->
+<header>
+  <div class="top">
+  	<div class="left">
+  		Tinker
+  	</div>
+  	<div class="right">
+  		Create Account
+	</div>
+   		<div class="amari">
+   		<a href="/user/list">戻る</a>
+		</div>
+	</div>
+</header>
+<!-- ヘッダー終了（アカウントのトップページ -->
+
+<!-- メインページ開始（名前～パスワードまで） -->
+<main>
+	<div class="register">
+		<from method="POST" action="register">
+			 <div class="input-btn">
+			 	<!-- action="/form.php"とかでPHPに変える -->
+			 	<label>姓<br>
+			 		<input type="text" name="姓"value="" placeholder="山田"></label><br>
+			 	<label>名<br>
+			 		<input type="text" name="名"value="" placeholder="太郎"></label><br>
+			 	<label>性別<br>
+			 		<input type="radio" name="radio" value="yes">男性<br>
+			 		<input type="radio" name="radio" value="no">女性<br>
+			 		<input type="radio" name="radio" value="no">その他<br>
+			 	</label>社員コード (ID)<br>
+			 		<input type="text" name="ID" placeholder="123456"></label><br>
+			 	</label>メールアドレス<br>
+			 		<input type="text" name="email" placeholder="Tarou.YAMADA@nttdata.comn"></label><br>
+			 	</label>パスワード<br>
+			 		<input type="password" name="Password" placeholder="taroyan" maxlegth="16"></label><br>
+			 	</label>パスワードの確認<br>
+			 		<input type="password" name="Password" placeholder="taroyan" maxlegth="16"></label><br>			
+			 </div>
+			 <!-- ボタン（登録、初期値） -->
+			 <button type="submit" value="submission">登録する</button><br>
+			 <button type="reset" value="reset">初期値へ戻す</button>
+		</from>
+	    </div>
+	    </form>
+</main>
+<!-- メインページ終了（名前～パスワードまで） -->

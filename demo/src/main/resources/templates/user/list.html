@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>NTT DATA</h1>
+    <div class="float-end">
+      <a th:href="@{/user/view}" class="btn btn-primary">ログイン</a>
+      <a th:href="@{/user/add}" class="btn btn-primary">アカウント作成</a>
+    </div>
+   	<h2>NTT DATE</h2>
+   	<p>NTTデータの社内マッチングサービス</p>
+ 	<p>Tinker 2022</p>
+</body>
+</html>
