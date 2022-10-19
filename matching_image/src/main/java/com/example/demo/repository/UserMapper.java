@@ -19,11 +19,38 @@ public interface UserMapper {
      */
     List<User> search(UserSearchRequest user);
     
+    /**
+     * 入社年度
+     * @param user 検索用リクエストデータ
+     * @return ユーザー情報
+     */
+    List<String> nyuusya(UserSearchRequest user);
+    
+    /**
+     * 好きなタイプ
+     * @param user 検索用リクエストデータ
+     * @return ユーザー情報
+     */
+    List<String> like(UserSearchRequest user);
+    
+    /**
+     * 趣味
+     * @param user 検索用リクエストデータ
+     * @return ユーザー情報
+     */
+    List<String> hobby(UserSearchRequest user);
+    
+    /**
+     * 一言コメント
+     * @param user 検索用リクエストデータ
+     * @return ユーザー情報
+     */
+    List<String> comment(UserSearchRequest user);
     
     /**
      * ユーザー情報の画像パスの検索
      * @param user 検索用リクエストデータ
      * @return パス情報
      */
-    List<String> path(UserSearchRequest user);
+    List<String> image(UserSearchRequest user);
 }

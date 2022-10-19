@@ -4,12 +4,32 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repository.UserMapper">
     <select id="search" resultType="com.example.demo.entity.User">
-    	select id,name,department,gender,age from user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    	SELECT a.id,a.name,a.gender,a.name,a.image,a.age,b.department_name FROM 
+    	private_user a --  ユーザーテーブル 別名b
+    	INNER JOIN
+    	department_table b --  部署テーブル 別名b
+    	ON
+    	a.department_ID = b.department_ID AND
+    	( a.age between #{agestart} and #{ageend}) AND a.gender=#{gender};
     </select>
     
-    
-    <select id="path"  resultType="String">
-    	select path from user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    <select id="image"  resultType="String">
+    	select image from private_user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
     </select>
     
+    <select id="nyuusya"  resultType="String">
+    	select nyuusya from private_user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    </select>
+    
+    <select id="like"  resultType="String">
+    	select suki from private_user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    </select>
+    
+    <select id="hobby"  resultType="String">
+    	select hobby from private_user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    </select>
+    
+    <select id="comment"  resultType="String">
+    	select comment from private_user where( age between #{agestart} and #{ageend}) AND gender=#{gender};
+    </select>
 </mapper>
