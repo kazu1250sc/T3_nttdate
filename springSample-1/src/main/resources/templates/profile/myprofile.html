@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!-- <head th:fragment="head_fragment(title, scripts, links)">
+  <title th:text="${title}"></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+</head>-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="profile/head :: head_fragment(title = 'プロフィール画面', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>プロフィール画面</h1>
+    <div class="float-end">
+      <a th:href="@{/profile/edit}" class="btn btn-primary">編集</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名前</th>
+          <th>部署</th>
+          <th>性別</th>
+          <th>年齢</th>
+          <th>入社年度</th>
+          <th>好きなタイプ</th>
+          <th>趣味</th>
+          <th>一言</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="profile : ${listProfileEditParam}" th:object="${profile}" class="align-middle">
+          <td th:text="*{id}"></td>
+          <td th:text="*{name}"></td>
+          <td th:text="*{department}"></td>
+          <td th:text="*{gender}"></td>
+          <td th:text="*{age}"></td>
+          <td th:text="*{nyuusya}"></td>
+          <td th:text="*{suki}"></td>
+          <td th:text="*{hobby}"></td>
+          <td th:text="*{comment}"></td>
+          <!--<td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>-->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
