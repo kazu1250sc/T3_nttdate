@@ -13,14 +13,13 @@ public class UserSearchRequest implements Serializable {
   private String gender;
   
   /**
-   * 性別
+   * 年齢のはじめ
    */
   private int agestart;
   
   /**
-   * 性別
+   * 年齢のおわり
    */
   private int ageend;
-  
   
 }

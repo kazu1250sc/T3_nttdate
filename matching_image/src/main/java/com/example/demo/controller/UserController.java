@@ -49,23 +49,72 @@ public class UserController {
    * @return ユーザー情報一覧画面
    */
   @RequestMapping(value = "/user/result", method = RequestMethod.POST)
-  public String path(@ModelAttribute UserSearchRequest userSearchRequest,Model model) {//メソッド2
+  public String image(@ModelAttribute UserSearchRequest userSearchRequest,Model model) {//メソッド2
 
     //User user = userService.search(userSearchRequest);//サービスクラスに依頼
-    List<User> user = userService.search(userSearchRequest);//サービスクラスに依頼
-    List<String> path =userService.path(userSearchRequest);
-    
+    List<User> user = userService.search(userSearchRequest);//NOT NULLのユーザー情報
+    List<String> path =userService.image(userSearchRequest);//画像
+    List<String> year =userService.nyuusya(userSearchRequest);//入社年度
+    /*
+    List<String> favorite =userService.like(userSearchRequest);//好きなタイプ
+    List<String> hobby_info =userService.hobby(userSearchRequest);//趣味
+    List<String> comment_info =userService.comment(userSearchRequest);//一言コメント
+    */
     try {
-		//最大値IDを取得	        
+		//画像をbyteに変換	        
         for(int i=0;i< path.size();i++){
         	String value = path.get(i);//ここから文字列の名前を取り出したい
-        	File fileImg = new File("C:\\ProgramData\\images/"+value);
-        	byte[] byteImg = Files.readAllBytes(fileImg.toPath());
-			String base64Data = Base64.getEncoder().encodeToString(byteImg);
-			path.set(i,"data:image/png;base64,"+base64Data);
+        	if(value==null) {
+        		File fileImg = new File("C:\\ProgramData\\images/"+"damy.jpg");
+        		byte[] byteImg = Files.readAllBytes(fileImg.toPath());
+    			String base64Data = Base64.getEncoder().encodeToString(byteImg);
+    			path.set(i,"data:image/png;base64,"+base64Data);
+        	}
+        	else {
+        		File fileImg = new File("C:\\ProgramData\\images/"+value);
+        		byte[] byteImg = Files.readAllBytes(fileImg.toPath());
+    			String base64Data = Base64.getEncoder().encodeToString(byteImg);
+    			path.set(i,"data:image/png;base64,"+base64Data);
+        	}
         }
+        //入社年度のnull値を置き換え	        
+        for(int i=0;i< year.size();i++){
+        	String value2 = year.get(i);//ここから文字列の名前を取り出したい
+        	if(value2==null) {
+        		year.set(i,"未入力です");
+        	}
+        }
+        /*
+        //好きなタイプのnull値を置き換え	        
+        for(int i=0;i< favorite.size();i++){
+        	String value3 = favorite.get(i);//ここから文字列の名前を取り出したい
+        	if(value3==null) {
+        		favorite.set(i,"未入力です");
+        	}
+        }
+      //趣味のnull値を置き換え	        
+        for(int i=0;i< hobby_info.size();i++){
+        	String value4 = hobby_info.get(i);//ここから文字列の名前を取り出したい
+        	if(value4==null) {
+        		hobby_info.set(i,"未入力です");
+        	}
+        }
+      //一言コメントのnull値を置き換え	        
+        for(int i=0;i< comment_info.size();i++){
+        	String value5 = comment_info.get(i);//ここから文字列の名前を取り出したい
+        	if(value5==null) {
+        		comment_info.set(i,"未入力です");
+        	}
+        }
+        */
         model.addAttribute("userinfo", user);//結果を設定
         model.addAttribute("base64Data",path);
+        model.addAttribute("nyuusya_year",year);
+        /*
+        model.addAttribute("favorite_type",favorite);
+        model.addAttribute("hobby",hobby_info);
+        model.addAttribute("comment",comment_info);
+        */
      }catch(IOException e) {
     	return null;
     }

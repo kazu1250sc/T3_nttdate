@@ -30,14 +30,18 @@
       <tr>
       	<th>画像</th>
        <th>名前</th>
-       <th>部署</th>
+       <th>年齢</th>
+       <th>事業本部</th>
+       <th>入社年度</th>
        <th></th>
       </tr>
      
       <tr th:each="st,stat : ${userinfo}">
       	<td><img th:src="${base64Data[stat.index]}"></td>
           <td th:text="*{st.name}"></td>
-          <td th:text="*{st.department}"></td>
+          <td th:text="*{st.age}+歳"></td>
+          <td th:text="*{st.department_name}"></td>
+          <td th:text="${nyuusya_year[stat.index]}"></td>
           <td><a th:href="@{/user/{id}(id=*{st.id})}" class="btn btn-secondary">詳細</a></td>
       </tr>
     </table>

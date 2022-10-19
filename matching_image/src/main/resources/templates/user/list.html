@@ -11,13 +11,11 @@
         <tr>
           <th>名前</th>
           <th>部署</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
           <td th:text="*{name}"></td>
-          <td th:text="*{department}"></td>
         </tr>
       </tbody>
     </table>
