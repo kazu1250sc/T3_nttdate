@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="NTTDate.css">
+    <title>Document</title>
+    <script src="form.js"></script>
+</head>
+
+<!-- ヘッダー開始（アカウントのトップページ） -->
+<header>
+    <div class="top left">
+        Tinker
+    </div>
+    <div class="top right">
+        Create Account
+    </div>
+</header>
+<!-- ヘッダー終了（アカウントのトップページ） -->
+
+
+<!-- メインページ開始 -->
+<body>
+    <div class="register">
+        <form name="sample">
+            <label>マッチしたい性別</label><br>
+            <select name="gender-object">
+                <option value="">選択してください</option>
+                <option value="woman">女性</option>
+                <option value="man">男性</option>
+                <option value="all">どちらも</option>
+            </select><br>
+            
+            <!--  <label>年齢</label><br>
+            <span class="age">
+            <select name="age-start">
+                <script>
+                    var i;
+                    for(i=22; i<65; i++){
+                    document.write('<option value="'+i+'">'+i+'</option>');
+                    }   
+                </script>
+            </select>
+            <label>~</label>
+            <select name="age-end">
+                <script>
+                    var i;
+                    for(i=23; i<66; i++){
+                    document.write('<option value="'+i+'">'+i+'</option>');
+                    }   
+                </script>
+            </select>
+            <label>歳</label><br>-->
+        </span>
+
+            <div class="button">
+                <input type="submit" value="検索">
+            </div>
+        </form>
+    </div>
+</body>
+<!-- メインページ終了 -->
+
+
+<!--フッター　＋　フッターロゴ  開始-->
+<footer>
+    <div class="page">
+        Tinker 2022
+    </div>
+</footer>
+<!--フッター　＋　フッターロゴ  終了-->
+
+
+</html>
