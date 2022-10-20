@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Welcome to CodeJava Home</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container text-center still">
+		<h1>Welcome to BurakOzcelik.com</h1>
+		<h3><a th:href="@{/users}">Start Chat</a></h3>
+		<h3><a th:href="@{/register}">Register</a></h3>
+		<h3><a th:href="@{/login}">Login</a></h3>
+	</div>
+	
+</body>
+</html>
+<style> 
+body {
+  background-image: url("https://i.pinimg.com/originals/2e/24/f4/2e24f45c6378355898922da7a909c4c8.jpg");
+  background-repeat: repeat;
+  background-color: #cccccc;
+}
+.still {
+  background-repeat: repeat;
+  background-color: #cccccc;
+  height: 200px;
+}
+</style>
