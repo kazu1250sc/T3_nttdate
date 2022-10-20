@@ -16,4 +16,5 @@ public class ListProfileEditParam implements Serializable {
    */
   @Valid
   private List<ListProfileEditData> listProfileEditDataList;
+ 
 }

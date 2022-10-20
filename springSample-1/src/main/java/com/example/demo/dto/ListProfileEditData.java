@@ -24,12 +24,6 @@ public class ListProfileEditData implements Serializable {
   @Size(max = 100, message = "名前は100文字以内で入力してください")
   private String name;
   /**
-   * 部署
-   */
-  @NotEmpty(message = "部署を入力してください")
-  @Size(max = 100, message = "部署は100文字以内で入力してください")
-  private String department;
-  /**
    * 性別
    */
   @NotEmpty(message = "性別を入力してください")
@@ -42,6 +36,11 @@ public class ListProfileEditData implements Serializable {
   @Range(min=22, max=65, message = "年齢は22歳以上で入力してください")//数値範囲の指定の仕方あってる？
   //@Max(65, message = "年齢は65歳以下で入力してください")
   private int age;
+  /**
+   * 部署ID
+   */
+  @NotEmpty(message = "部署を入力してください")
+  private int department_ID;
   /**
    * 入社年度
    */
@@ -65,4 +64,8 @@ public class ListProfileEditData implements Serializable {
   @NotEmpty(message = "一言を入力してください")
   @Size(max = 300, message = "一言は300文字以内で入力してください")
   private String comment;
+  /**
+   * 写真
+   */
+  private String image;
 }

@@ -16,8 +16,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "profile")
-public class Profile implements Serializable {
+@Table(name = "private_user")
+public class Private_user implements Serializable {
   /**
    * ID
    */
@@ -31,11 +31,6 @@ public class Profile implements Serializable {
   @Column(name = "name")
   private String name;
   /**
-   * 部署
-   */
-  @Column(name = "department")
-  private String department;
-  /**
    * 性別
    */
   @Column(name = "gender")
@@ -45,6 +40,11 @@ public class Profile implements Serializable {
    */
   @Column(name = "age")
   private int age;
+  /**
+   * 部署ID
+   */
+  @Column(name = "department_ID")
+  private int department_ID;
   /**
    * 入社年度
    */
@@ -65,6 +65,11 @@ public class Profile implements Serializable {
    */
   @Column(name = "comment")
   private String comment;
+  /**
+ 　* 写真
+   */
+  @Column(name = "image")
+  private String image;
   /**
    * 登録日時
    */
