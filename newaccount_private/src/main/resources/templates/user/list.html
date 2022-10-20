@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mode.css">
+    <title>Document</title>
+</head>
+<body>
+   <header>
+        <div class="title">NTTDATE</div>
+   </header>
+   
+  <div class="container">
+    <div class="float">
+      <a th:href="@{/user/add}" class="btn btn-primary">
+      		プライべートサイトへ飛ぶ
+      </a>
+      <a th:href="@{/user/business}" class="btn btn-primary">
+            ビジネスサイトへ飛ぶ
+      </a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>好きなタイプ</th>
+          <th>趣味</th>
+          <th>一言</th>
+          <th>プライベート画像</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+          <td th:text="*{suki}"></td>
+          <td th:text="*{hoby}"></td>
+          <td th:text="*{comment}"></td>
+          <td th:text="*{image}"></td>
+        </tr>
+      </tbody>
+    </table>
+      <!-- <img src="men.jpeg"" alt=""> -->
+    <footer></footer>
+</body>
+</html>
