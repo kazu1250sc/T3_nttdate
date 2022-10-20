@@ -31,23 +31,23 @@ public class ListProfileEditController{
 	
 	
 		//プロフィール画面を表示（ユーザー情報一覧画面を表示）
-		@GetMapping(value = "/profile/myprofile")
+		@GetMapping(value = "/private_user/myprofile")
 		public String myprofile(Model model){
 			ListProfileEditParam listProfileEditParam = listProfileEditService.searchAll();
 			model.addAttribute("listProfileEditParam", listProfileEditParam.getListProfileEditDataList());//画面に変数を与える
-			return "profile/myprofile";
+			return "private_user/myprofile";
 		}
 	
 		//プロフィール編集画面を表示
-		@GetMapping(value = "/profile/edit")
+		@GetMapping(value = "/private_user/edit")
 		public String nandemo(Model model){
 			ListProfileEditParam listProfileEditParam = listProfileEditService.searchAll();
 			model.addAttribute("listProfileEditParam", listProfileEditParam);
-			return "profile/edit";
+			return "private_user/edit";
 		}
 		
 		//プロフィール編集（ユーザー情報一覧更新）
-		@RequestMapping(value = "/profile/editUpdate",method = RequestMethod.POST)
+		@RequestMapping(value = "/private_user/editUpdate",method = RequestMethod.POST)
 		public String edit(@ModelAttribute ListProfileEditParam listProfileEditParam,/*BindingResult result,*/ Model model) {
 
 
@@ -67,7 +67,7 @@ public class ListProfileEditController{
 			listProfileEditService.updateAll(listProfileEditParam);
 			//ListProfileEditParam listProfileEditParam2 = listProfileEditService.searchAll();
 			model.addAttribute("listProfileEditParam", listProfileEditParam.getListProfileEditDataList());
-			return "profile/myprofile";
+			return "private_user/myprofile";
 		}
 
 }

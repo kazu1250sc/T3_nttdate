@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.ListProfileEditData;
 import com.example.demo.dto.ListProfileEditParam;
-import com.example.demo.entity.Profile;
+import com.example.demo.entity.Private_user;
 import com.example.demo.repository.ListProfileEditRepository;
 /**
  * ユーザー情報 Service
@@ -29,23 +29,26 @@ public class ListProfileEditService {
    */
   public ListProfileEditParam searchAll() {
     // プロフィール情報の取得（ユーザー情報の取得）
-    List<Profile> profileList = listProfileEditRepository.findAll();
+    List<Private_user> private_userList = listProfileEditRepository.findAll();//findAllしたものをprivate_userListに入れる
     ListProfileEditParam listProfileEditParam = new ListProfileEditParam();
     List<ListProfileEditData> list = new ArrayList<ListProfileEditData>();
+    System.out.println(private_userList);//検索してprivate_userListに入れたはずのデータが空
     
     // エンティティを画面データに詰め替える
-    for(Profile profile : profileList) {
+    for(Private_user private_user : private_userList) {
       ListProfileEditData data = new ListProfileEditData();
-      data.setId(profile.getId());
-      data.setName(profile.getName());
-      data.setDepartment(profile.getDepartment());
-      data.setGender(profile.getGender());
-      data.setAge(profile.getAge());
-      data.setNyuusya(profile.getNyuusya());
-      data.setSuki(profile.getSuki());
-      data.setHobby(profile.getHobby());
-      data.setComment(profile.getComment());
+      data.setId(private_user.getId());
+      data.setName(private_user.getName());
+      data.setGender(private_user.getGender());
+      data.setAge(private_user.getAge());
+      data.setDepartment_ID(private_user.getDepartment_ID());
+      data.setNyuusya(private_user.getNyuusya());
+      data.setSuki(private_user.getSuki());
+      data.setHobby(private_user.getHobby());
+      data.setComment(private_user.getComment());
+      data.setImage(private_user.getImage());
       list.add(data);
+      //System.out.println("ここもできてる！！！！！！！");
     }
     
     listProfileEditParam.setListProfileEditDataList(list);
@@ -56,22 +59,23 @@ public class ListProfileEditService {
    * @param param 画面パラメータ
    */
   public void updateAll(ListProfileEditParam param) {
-    List<Profile> profileList = new ArrayList<Profile>();
+    List<Private_user> private_userList = new ArrayList<Private_user>();
     // 画面パラメータをエンティティに詰め替える
     for (ListProfileEditData data : param.getListProfileEditDataList()) {
-      Profile profile = listProfileEditRepository.findById(data.getId()).get();
-      //System.out.println(profile);
-      profile.setName(data.getName());
-      profile.setDepartment(data.getDepartment());
-      profile.setGender(data.getGender());
-      profile.setAge(data.getAge());
-      profile.setNyuusya(data.getNyuusya());
-      profile.setSuki(data.getSuki());
-      profile.setHobby(data.getHobby());
-      profile.setComment(data.getComment());
-      profileList.add(profile);
-      //System.out.println("DB更新してまあああああああああああああああああああああああああす");
+      Private_user private_user = listProfileEditRepository.findById(data.getId()).get();
+      //System.out.println(private_user);
+      private_user.setName(data.getName());
+      private_user.setGender(data.getGender());
+      private_user.setAge(data.getAge());
+      private_user.setDepartment_ID(data.getDepartment_ID());
+      private_user.setNyuusya(data.getNyuusya());
+      private_user.setSuki(data.getSuki());
+      private_user.setHobby(data.getHobby());
+      private_user.setComment(data.getComment());
+      private_user.setImage(data.getImage());
+      private_userList.add(private_user);
+     //System.out.println("DB更新してまあああああああああああああああああああああああああす");
     }
-    listProfileEditRepository.saveAll(profileList);
+    listProfileEditRepository.saveAll(private_userList);
   }
 }

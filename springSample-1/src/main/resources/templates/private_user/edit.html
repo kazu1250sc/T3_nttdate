@@ -12,7 +12,7 @@
       <label class="text-danger" th:text="${error}"></label>
     </div>
     <h1>プロフィール編集画面</h1>
-    <form th:action="@{/profile/editUpdate}" th:object="${listProfileEditParam}" th:method="post">
+    <form th:action="@{/private_user/editUpdate}" th:object="${listProfileEditParam}" th:method="post">
       <div  class="text-end">
         <input type="submit" class="btn btn-primary" value="　保存　">
       </div><br />
@@ -21,9 +21,9 @@
           <tr>
             <th>ID</th>
             <th>名前</th>
-            <th>部署</th>
             <th>性別</th>
             <th>年齢</th>
+            <th>部署</th>
             <th>入社年度</th>
             <th>好きなタイプ</th>
             <th>趣味</th>
@@ -32,22 +32,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr th:each="profile, st : *{listProfileEditDataList}" class="align-middle">
+          <tr th:each="private_user, st : *{listProfileEditDataList}" class="align-middle">
             <td>
-              <label th:text="${profile.id}"></label>
+              <label th:text="${private_user.id}"></label>
               <input type="hidden" th:field="*{listProfileEditDataList[__${st.index}__].id}">
             </td>
             <td>
               <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].name}">
             </td>
             <td>
-              <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].department}">
-            </td>
-            <td>
               <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].gender}">
             </td>
             <td>
               <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].age}">
+            </td>
+            <td>
+              <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].department_ID}">
             </td>
             <td>
               <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].nyuusya}">
@@ -60,6 +60,9 @@
             </td>
             <td>
               <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].comment}">
+            </td>
+            <td>
+              <input type="text" class="form-control" th:field="*{listProfileEditDataList[__${st.index}__].image}">
             </td>
               <!--  <label th:text="${#dates.format(user.updateDate, 'yyyy/MM/dd')}"></label>
               <input type="hidden" th:field="*{listProfileEditDataList[__${st.index}__].updateDate}">
