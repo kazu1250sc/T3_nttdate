@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報一覧', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+  <div class="container">
+    <h1>NTTDATE for Private</h1>
+    <div class="float-end">
+      <a th:href="@{/user/add}" class="btn btn-primary">トーク</a>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>名前</th>
+          <th>年齢</th>
+          <th>事業本部</th>
+          <th>入社年度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${userlist}" th:object="${user}" class="align-middle">
+        <td></td>
+          <td th:text="*{name}"></td>
+          <td th:text="*{age}"></td>
+          <td th:text="*{department}"></td>
+          <td th:text="*{nyuusya}"></td>
+          <td><a th:href="@{/user/{id}(id=*{id})}" class="btn btn-secondary">詳細</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
