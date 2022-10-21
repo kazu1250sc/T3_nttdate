@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報詳細', scripts = ~{::script}, links = ~{::link})"></head>
+<body>
+
+	<header></header>
+	
+	<main>
+		 <div class="login">
+			<a href="/user/list">戻る</a>
+				 <form method="POST" action="register">
+					<div class="input-btn">
+						<!-- action="/form.php"とかでPHPに変える -->
+						<label>メールアドレス<br>
+							<input type="text" name="Mail" placeholder="Tarou.Yamada@nttdata.com"></label></div>
+						<label>パスワード<br>
+							<input type="password" name="password" placeholder="taroyan" maxlength="16"></label><br>
+					</div>
+					<!-- ボタン（登録） -->
+					<div class="btn">
+						<button type="submit" value="submission">ログイン</button><br>
+					</div>
+				 </form>
+				</div>
+		 </div>
+	</main>
+	
+	<footer></footer>
+</body>
+</html>
